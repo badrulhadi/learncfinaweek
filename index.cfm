@@ -16,22 +16,13 @@
         ColdFusion is running and you have successfully copied over the files to your web root!
     </p>
 
-    <cfset FruitBasket = {} />
-    <cfset FruitBasket["Apple"] = "Like" />
-    <cfset FruitBasket["Banana"] = "Like" />
-    <cfset FruitBasket["Cherry"] = "Dislike" />
-
-    <cfdump var = "#FruitBasket#" />
-
-    <cfset myArray = ['Jeff', 'John', 'Steve', 'Julianne'] />
-
-    <cfscript>
-        for (test in myArray) {
-            writeOutput(#test# & '<br />');
-        }
-    </cfscript>
+    <cfset Greeting = CreateObject("Component", "Greeting") />
+    <cfset myGreeting = Greeting.getGreeting(firstName="Emily", lastName="Christiansen") />
+  
+    <cfoutput>
+        #myGreeting#
+    </cfoutput>
     
-
     <cfscript>
         // myQry = new Query();
         // myQry.setDatasource("learncfinaweek"); 
@@ -47,12 +38,12 @@
 
         // ).execute().getResult();
 
-        myQueryResult = queryExecute(
-            "SELECT * FROM resume",
-            {dbType:"query"}
-        );
+        // myQueryResult = QueryExecute(
+        //     ("SELECT * FROM resume"),
+        //     {datasource="learncfinaweek"}
+        // );
 
-        writeDump(myQueryResult);
+        // writeDump(myQueryResult);
     </cfscript>
 </body>
 
