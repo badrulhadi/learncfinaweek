@@ -1,7 +1,7 @@
-<cfset myName="Badrul" />
-<cfset myPosition="A Developer" />
-
-<cfset section="Home" />
+<!--- <cfset myName="Badrul" />
+    <cfset myPosition="A Developer" /> --->
+    
+    <cfset section="Home" />
 <cfinclude template="includes/header.cfm" />
 
 <!-- Content Start -->
@@ -18,10 +18,10 @@
                         <!--- This is where the name and position are output --->
                         <div class="tag">HELLO,
                             <span>I'M
-                                <cfoutput>#myName#</cfoutput>,</span>
+                                <cfoutput>#application.myName#</cfoutput>,</span>
                         </div>
                         <div class="sub-tag">
-                            <cfoutput>#myPosition#</cfoutput>
+                            <cfoutput>#application.myPosition#</cfoutput>
                         </div>
                     </div>
                 </div>

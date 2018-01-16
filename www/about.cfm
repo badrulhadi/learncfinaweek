@@ -69,7 +69,7 @@
 							<div class="clr"><div class="input-box">Date of birth </div><span> #personalInfo.dob#</span></div>
 							<div class="clr"><div class="input-box">Address</div><span> #personalInfo.address#</span></div>
 							<div class="clr"><div class="input-box">Phone</div> <span>#personalInfo.phonenumber#</span>  </div>
-							<div class="clr"><div class="input-box">E-mail</div><span><a href="#utilities.convertStringToASCII(personalInfo.email)#">#personalInfo.email#</a></span>  </div>
+							<div class="clr"><div class="input-box">E-mail</div><span><a href="#application.utilities.convertStringToASCII(personalInfo.email)#">#personalInfo.email#</a></span>  </div>
 							<div class="clr"><div class="input-box">Website </div> <span><a href="#personalInfo.website#">#personalInfo.website#</a></span> </div> 
 							<div class="clr"><div class="box1">Skype </div> <span><a href="##">#personalInfo.skype#</a></span> </div> 
 							</cfoutput>
