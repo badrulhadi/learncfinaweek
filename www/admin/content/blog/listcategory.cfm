@@ -1,9 +1,10 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfset adminPath = createObject('learncfinaweek.www.admin.cfc.system').getBasePath(cgi.script_name) />
 
 <!--- Pull Categories --->
+<cfset blogCategories = EntityLoad('BlogCategory') />
 
 <cfoutput>
 	<ct:layout section="blog">
@@ -29,10 +30,11 @@
 						<tr>
 							<td>
 								<!--- Name --->
+								#blogCategory.name#
 							</td>
 							<td>
-								<!--- Edit Category --->
-								<a href="#adminPath#/content/blog/editcategory.cfm?id="><i class="icon-edit"></i></a>
+								<!--- Edit Category --->								
+								<a href="#adminPath#/content/blog/editcategory.cfm?id=#blogCategory.id#"><i class="icon-edit"></i></a>
 							</td>
 						</tr>
 					</cfloop>

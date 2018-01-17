@@ -1,4 +1,4 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfparam name="form.submitted" default="0" />

@@ -1,4 +1,4 @@
-﻿<cfimport taglib="customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 
 <cfparam name="form.submitted" default="0" />
 <cfparam name="form.emailaddress" default="" />

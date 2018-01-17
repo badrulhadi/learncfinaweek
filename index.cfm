@@ -16,11 +16,23 @@
         ColdFusion is running and you have successfully copied over the files to your web root!
     </p>
 
-    <cfset Greeting = CreateObject("Component", "Greeting") />
-    <cfset myGreeting = Greeting.getGreeting(firstName="Emily", lastName="Christiansen") />
-  
+    <cfset artists = entityLoad( "artist", { firstname: "Jeff" }, "lastname" )>
+    <cfset artists = ormExecuteQuery(
+        "FROM artist WHERE firstname like :firstname ORDER BY lastname", 
+        { firstname: "A%"}
+        )>
+    
     <cfoutput>
-        #myGreeting#
+    <cfloop array="#artists#" index="artist">
+        <h4>#artist.firstName# #artist.lastname# #artist.id#</h4>
+        <cfif artist.hasArt()>
+            <ul>
+                <cfloop array="#artist.getArt()#" index="art">
+                    <li>#art.name# #dollarFormat( art.price )#</li>
+                </cfloop>
+            </ul>
+        </cfif>
+    </cfloop>
     </cfoutput>
     
     <cfscript>

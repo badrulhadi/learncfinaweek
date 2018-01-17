@@ -1,9 +1,10 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfset adminPath = createObject('learncfinaweek.www.admin.cfc.system').getBasePath(cgi.script_name) />
 
 <!--- Pull Blog Posts --->
+<cfset blogPosts = EntityLoad('BlogPost') />
 
 <cfoutput>
 	<ct:layout section="blog">
@@ -30,13 +31,15 @@
 						<tr>
 							<td>
 								<!--- Title --->
+								#blogPost.title#
 							</td>
 							<td>
 								<!--- Date Posted --->
+								#dateFormat(blogPost.datePosted,"mm/dd/yyyy")#	
 							</td>
 							<td>
 								<!--- Edit Post --->
-								<a href="#adminPath#/content/blog/editblogpost.cfm?id="><i class="icon-edit"></i></a>
+								<a href="#adminPath#/content/blog/editblogpost.cfm?id=#blogPost.id#"><i class="icon-edit"></i></a>
 							</td>
 						</tr>
 					</cfloop>

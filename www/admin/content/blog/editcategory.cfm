@@ -1,4 +1,4 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfparam name="url.id" default="0" />
@@ -15,8 +15,12 @@
 	<cfif !errorBean.hasErrors()>
 		<cfif val(form.id)>
 			<!--- Edit Entity  --->
+			<cfset blogCategory = EntityLoad('BlogCategory', form.id, true)/>
+			<cfset blogCategory.name = form.name />
 		<cfelse>
 			<!--- Create Entity --->
+			<cfset blogCategory = EntityNew('BlogCategory') />
+			<cfset blogCategory.name = form.name />
 		</cfif>
 		
 		<cfset entitySave(BlogCategory) />
@@ -25,9 +29,11 @@
 		<cflocation url="listcategory.cfm?message=#urlencodedformat('Blog Category Saved')#" addtoken="false" />
 	</cfif>	
 </cfif>
-
+<!--- <cfdump var="#form#"/> --->
 <cfif val(url.id)>
 	<!--- Get Entity Data --->
+	<cfset blogCategory = EntityLoad('BlogCategory',url.id, true ) />
+	<cfset form.name = blogCategory.name />	
 </cfif>
 
 <cfoutput>
