@@ -9,6 +9,7 @@
 
 <cfset blogPosts = EntityLoad('blogPost') />
 
+
 <cfimport taglib="customTags/" prefix="layout" />
 <layout:page section="blog">  		
 <!-- Content Start -->
@@ -34,8 +35,9 @@
 					<div class="left">
 						<!-- Blog Posts -->
 
-						<cfoutput>
-						<cfloop array="#blogPosts#" index="blogPost">	
+						<cfoutput>				
+						<cfloop array="#blogPosts#" index="blogPost">
+							<!--- <cfdump var="#blogPost#" > <cfabort>	 --->
 							<!-- Start Blog Post -->
 							<h5>
 								<span>#dateFormat(blogPost.datePosted,"mm/dd/yyyy")# </span>
@@ -45,7 +47,7 @@
 							</h2>
 							<p>#blogPost.summary#</p>
 							<p class="summary">
-								<strong>Categories:</strong> #blogPost.getCategoryNames()# <strong>Comments:</strong> #arrayLen(blogPost.getComments())#
+								<strong>Categories:</strong> #blogPost.CategoryNames# <strong>Comments:</strong> #arrayLen(blogPost.getComments())#
 							</p>
 							<!-- End Blog Post -->
 						</cfloop>

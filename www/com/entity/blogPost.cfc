@@ -31,6 +31,6 @@ component persistent="true"{
 				categoryList = listAppend(categoryList, categoryPost.blogCategory.name,', ');
 			}
 		}
-		return categoryList;
+        return categoryList;
 	}
 }
