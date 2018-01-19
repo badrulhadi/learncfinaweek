@@ -1,0 +1,2 @@
+<cfcache action="flush">
+</cfcache>

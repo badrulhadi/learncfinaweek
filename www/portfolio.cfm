@@ -1,14 +1,18 @@
-<cfquery name="myPortfolio">
-	SELECT
-		title,
-		summary,
-		website,
-		image
-	FROM
-		portfolio
-	ORDER BY
-		title
-</cfquery>
+<cfset myPortfolio = cacheGet('myPortfolio') />
+
+<cfif isNull(myPortfolio)>
+	<cfquery name="myPortfolio">
+		SELECT
+			id,
+			title,
+			summary,
+			website,
+			image
+		FROM
+			portfolio
+	</cfquery>	
+	<cfset cachePut('myPortfolio',myportFolio) />
+</cfif>
 
 <cfset section="Portfolio" />
 <cfinclude template="includes/header.cfm" />

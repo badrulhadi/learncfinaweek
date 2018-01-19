@@ -35,6 +35,7 @@
 					<div class="left">
 						<!-- Blog Posts -->
 
+						<!--- <cfcache action="cache" timespan="#createtimespan(0,1,0,0)#" > --->
 						<cfoutput>				
 						<cfloop array="#blogPosts#" index="blogPost">
 							<!--- <cfdump var="#blogPost#" > <cfabort>	 --->
@@ -52,6 +53,7 @@
 							<!-- End Blog Post -->
 						</cfloop>
 						</cfoutput>
+						<!--- </cfcache> --->
 					</div>
 					<div class="right" >
 						<h2>Categories</h2>

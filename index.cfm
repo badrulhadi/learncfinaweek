@@ -16,17 +16,11 @@
         ColdFusion is running and you have successfully copied over the files to your web root!
     </p> --->
 
-    <cffile 
-        action="upload" 
-        destination="/vagrant" 
-        filefield="aFile"
-        nameconflict="makeunique"
-        accept="image/png"	
-        result="fileUploadResult" />
+    <cfset CachePut(42, 'AnswerToEverything', CreateTimespan( 2, 0, 0, 0) ) />
+    <cfset CacheValue = CacheGet(42) />
+    <cfdump var="#CacheValue#">
+    <cfdump var="#cacheGetMetaData(42)#" />
 
-    <cfscript>
-        
-    </cfscript>
 </body>
 
 </html>
