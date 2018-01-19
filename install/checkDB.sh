@@ -1,4 +1,4 @@
 #!/bin/bash
 				cd /usr/local/mysql/bin
-				./mysql -u root -p323_hacker --execute="SHOW Databases" mysql
+				./mysql -u root -padmin --execute="SHOW Databases" mysql
 				

@@ -12,50 +12,20 @@
     <h1>
         Congratulations!!
     </h1>
-    <p>
+    <!--- <p>
         ColdFusion is running and you have successfully copied over the files to your web root!
-    </p>
+    </p> --->
 
-    <cfset artists = entityLoad( "artist", { firstname: "Jeff" }, "lastname" )>
-    <cfset artists = ormExecuteQuery(
-        "FROM artist WHERE firstname like :firstname ORDER BY lastname", 
-        { firstname: "A%"}
-        )>
-    
-    <cfoutput>
-    <cfloop array="#artists#" index="artist">
-        <h4>#artist.firstName# #artist.lastname# #artist.id#</h4>
-        <cfif artist.hasArt()>
-            <ul>
-                <cfloop array="#artist.getArt()#" index="art">
-                    <li>#art.name# #dollarFormat( art.price )#</li>
-                </cfloop>
-            </ul>
-        </cfif>
-    </cfloop>
-    </cfoutput>
-    
+    <cffile 
+        action="upload" 
+        destination="/vagrant" 
+        filefield="aFile"
+        nameconflict="makeunique"
+        accept="image/png"	
+        result="fileUploadResult" />
+
     <cfscript>
-        // myQry = new Query();
-        // myQry.setDatasource("learncfinaweek"); 
-        // myQry.setSQL("SELECT * FROM category");
-        // myQuery = myQry.execute();
-
-        // writeDump(myQuery.getResult());
-        // writeDump(myQuery.getPrefix());
-
-        // myQueryResult = new Query(
-        //     sql="SELECT * FROM resume", 
-        //     datasource="learncfinaweek"
-
-        // ).execute().getResult();
-
-        // myQueryResult = QueryExecute(
-        //     ("SELECT * FROM resume"),
-        //     {datasource="learncfinaweek"}
-        // );
-
-        // writeDump(myQueryResult);
+        
     </cfscript>
 </body>
 

@@ -1,4 +1,4 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfparam name="url.id" default="0" />
@@ -22,6 +22,19 @@
 	
 	<cfif !errorBean.hasErrors()>
 		<!--- Image Upload Process --->
+		<cfif len(form.image)>
+			<cffile action="upload" filefield="image" destination="#getTempDirectory()#" nameconflict="makeunique" />
+			
+			<cfif listFindNoCase(getReadableImageFormats(),cffile.serverFileExt)>
+				<cfset imageObject = imageRead(cffile.serverDirectory & '/' & cffile.serverfile) />
+				<cfset imageScaleToFit(imageObject,'202','131') />
+				<cfset imageWrite(imageObject,expandpath('../../../assets/images/portfolio/#cffile.serverfile#')) />
+				<cfset form.image = cffile.serverfile />
+			<cfelse>
+				<cfset form.image='' />
+			</cfif>
+
+		</cfif>
 			
 		<!--- Save Portfolio --->	
 		<cfif val(form.id)>

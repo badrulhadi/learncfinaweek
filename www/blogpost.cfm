@@ -48,7 +48,7 @@
 								</p>
 								<!-- Blog Export -->
 								<p>
-									<a href="exportToPDF.html?id=#blogPost.id#" target="_new"><img src="assets/images/export_pdf.png" border="0"/></a>
+									<a href="ExportToPDF.cfm?id=#blogPost.id#" target="_new"><img src="assets/images/export_pdf.png" border="0"/></a>
 								</p>
 								<!-- Blog Comments Section -->
 								<h3>

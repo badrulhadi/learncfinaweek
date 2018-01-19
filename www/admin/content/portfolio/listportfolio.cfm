@@ -1,4 +1,5 @@
-﻿<cfimport taglib="../../customTags" prefix="ct" />
+﻿
+<cfimport taglib="/adminCustomTags" prefix="ct" />
 <ct:securityCheck redirectPage="#cgi.script_name#"/>
 
 <cfset adminPath = createObject('learncfinaweek.www.admin.cfc.system').getBasePath(cgi.script_name) />

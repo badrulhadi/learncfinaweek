@@ -12,6 +12,7 @@
 <cfparam name="form.message" default="" />
 
 <cfset section = "Contact" />
+<cfhttp url="http://www.learncfinaweek.com/twitter.xml" method="get" result="twitterFeed" /> 
 <cfinclude template="includes/header.cfm"/>
 		
 		<!-- Content Start -->
@@ -131,8 +132,13 @@
 								<div class="twitter clr"> 
 									<!-- Twitter Output -->
 									<ul>
-										<li>
-										</li>
+									<cfoutput>
+										<cfloop array="#xmlParse(twitterFeed.fileContent).statuses.status#" index="feedItem">
+											<li>
+												#dateformat(feedItem.created_at.xmlText,'mm/dd/yyyy')# - #feedItem.text.xmlText#
+											</li>
+										</cfloop>
+									</cfoutput>
 									</ul>
 								</div>
 							</div>
