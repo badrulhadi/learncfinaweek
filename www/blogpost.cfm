@@ -53,7 +53,7 @@
 							</h2>
 							<!-- Date Published -->
 							<h5>
-								<strong>Date Posted</strong>: #dateformat(blogPost.dateposted,'mm/dd/yyyy')#
+								<strong>Date Posted</strong>: #LsdateFormat(blogPost.dateposted,'mm/dd/yyyy')#
 							</h5>
 							<!-- Blog Body -->
 							<p>
@@ -76,7 +76,7 @@
 										<li>
 											<p>
 												<strong>Posted On:</strong>
-												#dateFormat(comment.createdDateTime,'mm/dd/yyyy')# at #timeformat(comment.createdDateTime,'short')# AM By #encodeForHTML(comment.author)#
+												#LsdateFormat(comment.createdDateTime,'mm/dd/yyyy')# at #LstimeFormat(comment.createdDateTime,'short')# AM By #encodeForHTML(comment.author)#
 											</p>
 											<p>
 												#encodeForHTML(comment.comment)#
