@@ -21,16 +21,37 @@ component {
     this.sessioncookie.disableupdate = true;
 
     function onApplicationStart(){
+
         application.myName = "Badrul Hadi";
         application.myPosition = "Developer";
         application.utilities = CreateObject('cfc.utilities');
         return true;
     }
 
+
     function onRequestStart(string tsrgetPage){
+
         if (StructKeyExists(URL, 'load')){
             onApplicationStart();
             ormReload();
         }
+    }
+
+
+    function onError( any Exception, string EventName ) {
+
+    	include 'sorry.cfm';
+    	var errorEmail = new mail();
+    	errorEmail.setTo('you@domain.com');
+    	errorEmail.setFrom('system@domain.com');
+    	errorEmail.setSubject('An Error has Occured');
+    	errorEmail.setBody('
+    		Message: #arguments.exception.message# <br />
+    		Details: #arguments.exception.detail# <br />
+    		Type: #arguments.exception.type# <br />
+    	');
+    	errorEmail.setType('html');
+    	errorEmail.send();
+
     }
 }
