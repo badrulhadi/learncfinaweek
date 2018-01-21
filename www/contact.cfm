@@ -1,8 +1,8 @@
 <cfscript>
-	personalInfo = { 
-		address='Kuala Lumpur', 
-		phonenumber='0123465789', 
-		email='badrulhadi@gmail.com', 
+	personalInfo = {
+		address='Kuala Lumpur',
+		phonenumber='0123465789',
+		email='badrulhadi@gmail.com',
 		skype='lala'
 	};
 </cfscript>
@@ -12,11 +12,11 @@
 <cfparam name="form.message" default="" />
 
 <cfset section = "Contact" />
-<cfhttp url="http://www.learncfinaweek.com/twitter.xml" method="get" result="twitterFeed" /> 
+<cfhttp url="http://www.learncfinaweek.com/twitter.xml" method="get" result="twitterFeed" />
 <cfinclude template="includes/header.cfm"/>
-		
+
 		<!-- Content Start -->
-  	
+
 		<!--Card  -->
 		<div id="content">
 			<div class="card-pattern">
@@ -26,7 +26,7 @@
 						<div class="top-bg1">
 							<div class="top-left">
 								<div><h1>Contact</h1></div>
-							</div> 
+							</div>
 						</div>
 						<div class="clr">
 							<div class="pat-bottomleft">&nbsp;</div>
@@ -45,23 +45,23 @@
 							<div class="clr">
 								<div id="respond">
 									<h2>Drop me a line</h2>
-									<p>Your email address will not be published. Required fields are marked *</p>		
+									<p>Your email address will not be published. Required fields are marked *</p>
 									<!-- Message Output -->
 									<cfif form.submitted>
 										<cfset ok = true />
-										
+
 										<cfif NOT len(trim(form.contactname))>
 											<cfset ok = false/>
 										</cfif>
-										
+
 										<cfif NOT len(trim(form.email))>
 											<cfset ok = false/>
 										</cfif>
-										
+
 										<cfif NOT len(trim(form.message))>
 											<cfset ok = false/>
 										</cfif>
-										
+
 										<cfif !ok>
 											<p>You did not provide all the required information!</p>
 										<cfelse>
@@ -71,17 +71,17 @@
 												<h2>Contact Request</h2>
 												<p>
 													From: #form.contactName# (#form.email#)
-												</p>	
+												</p>
 												<p>
 													#form.message#
 												</p>
 											</cfmail>
 										</cfoutput>
 										</cfif>
-									</cfif>						
+									</cfif>
 									<div id="post_message" class="post_message"></div>
-									
-									<div class="boxBody">			  
+
+									<div class="boxBody">
 										<div class="desc">
 
 											<cfoutput>
@@ -91,22 +91,22 @@
 													<input name="contactname" type="text" class="required" value="#form.contactname#" />
 												</div>
 												<div>
-													<label>E-mail <span class="font-11">(required)</span></label>				
+													<label>E-mail <span class="font-11">(required)</span></label>
 													<input name="email" type="text" class="required email" value="#form.email#" />
 												</div>
 												<div class="textarea">
-													<label>Message <span class="font-11">(required)</span></label>				
-													<textarea name="message" rows="6" cols="60" class="required">#form.message#</textarea>		
+													<label>Message <span class="font-11">(required)</span></label>
+													<textarea name="message" rows="6" cols="60" class="required">#form.message#</textarea>
 												</div>
 												<div>
 													<input id="submitBtn" value="Submit"  name="submit" type="submit" class="submitBtn" />
 												</div>
 												<input type="hidden" name="submitted" value="1" />
-											</form>	
+											</form>
 										</cfoutput>
-										</div><!--END desc show--> 
-									<!--END desc-->	
-									</div>					
+										</div><!--END desc show-->
+									<!--END desc-->
+									</div>
 									<div  class="clr"></div>
 								</div>
 							</div>
@@ -129,7 +129,7 @@
 							<div class="clr">
 								<div class="pad-top5"></div>
 								<h2>Latest Tweet</h2>
-								<div class="twitter clr"> 
+								<div class="twitter clr">
 									<!-- Twitter Output -->
 									<ul>
 									<cfoutput>
@@ -146,10 +146,10 @@
 					</div><!--//clr end //-->
 					<div class="clr"></div>
 				</div><!-- contact end -->
-		
+
 				<div class="clr"></div>
 			</div><!--card pattern end -->
 			<div class="clr "></div>
-		</div>		  <!--content end -->	
+		</div>		  <!--content end -->
 
 <cfinclude template="includes/footer.cfm"/>

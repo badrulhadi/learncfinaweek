@@ -11,7 +11,7 @@
 
 
 <cfimport taglib="customTags/" prefix="layout" />
-<layout:page section="blog">  		
+<layout:page section="blog">
 <!-- Content Start -->
 
 <!--Card  -->
@@ -23,20 +23,20 @@
 				<div class="top-bg1">
 					<div class="top-left">
 						<div><h1>Blog</h1></div>
-					</div> 
+					</div>
 				</div>
 				<div class="clr">
 					<div class="pat-bottomleft">&nbsp;</div>
 					<div class="pat-bottomright">&nbsp;</div>
 				</div>
 			</div>
-			<div class="blog-top">	
+			<div class="blog-top">
 				<div class="clr">
 					<div class="left">
 						<!-- Blog Posts -->
 
 						<!--- <cfcache action="cache" timespan="#createtimespan(0,1,0,0)#" > --->
-						<cfoutput>				
+						<cfoutput>
 						<cfloop array="#blogPosts#" index="blogPost">
 							<!--- <cfdump var="#blogPost#" > <cfabort>	 --->
 							<!-- Start Blog Post -->

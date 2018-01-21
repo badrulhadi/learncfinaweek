@@ -1,6 +1,6 @@
 <!--- <cfset myName="Badrul" />
     <cfset myPosition="A Developer" /> --->
-    
+
     <cfset section="Home" />
 <cfinclude template="includes/header.cfm" />
 

@@ -13,9 +13,9 @@
             <p>
                 <strong>Date Posted</strong>: #dateformat(blogPost.datePosted,'mm/dd/yyyy')#
             </p>
-            <p>	
+            <p>
             #blogPost.body#
-            </p>		
+            </p>
         </cfoutput>
     </cfdocument>
     <cfpdf action="addWatermark" source="myGeneratedPDF" image="assets/images/watermark.jpeg" foreground="yes" overwrite="yes"/>
