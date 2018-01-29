@@ -10,6 +10,7 @@ component {
         "/foo" = expandPath('/com/myCompany/foo')
     };
 
+    // just add another comment
     // see also: http://help.adobe.com/en_US/ColdFusion/10.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-750b.html
     // see also: http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSED380324-6CBE-47cb-9E5E-26B66ACA9E81.html
 
@@ -19,7 +20,7 @@ component {
 
     function onSessionStart() {}
 
-    // the target page is passed in for reference, 
+    // the target page is passed in for reference,
     // but you are not required to include it
     function onRequestStart( string targetPage ) {}
 
@@ -35,4 +36,4 @@ component {
 
     function onError( any Exception, string EventName ) {}
 
-}	
+}
